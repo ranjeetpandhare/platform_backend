@@ -1,9 +1,8 @@
 const express = require("express");
 const bodyparser = require("body-parser");
 const app = express();
+require("dotenv").config();
 
-
-const port = process.env.port || 5000;
 
 app.use(bodyparser.urlencoded({ extended: true }));
 
@@ -31,6 +30,6 @@ app.use('/api/v1/answer', answerRoutes);
 
 
 // set port, listen for requests
-app.listen(port, () => {
+app.listen(process.env.PORT || 5000, () => {
     console.log(`Server is running on port ${port}`);
 });
